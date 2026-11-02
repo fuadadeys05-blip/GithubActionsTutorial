@@ -1,10 +1,11 @@
-name: GitHub Actions Demo
+name: GitHub Actions Demo # A complete automation process defined in a yaml file
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
-jobs:
+on: [push] # events that trigger the workflow
+jobs: # A collection of steps that will be executed on a runner
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
+    runs-on: ubuntu-latest # The machine wher your workflow jobs execute. 
+    # GitHub-hosted runners are available for Linux, Windows, and macOS.
+    steps: # An indinvidual task inside a job, such. as executing a command or running an action
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -16,3 +17,4 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "💾 The workflow run ID is ${{ github.run_id }} and the workflow run number is ${{ github.run_number }}."

@@ -1,0 +1,25 @@
+name: Variables Sample Workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  APP_NAME: student-app
+  ENVIRONMENT: production
+  APP_PORT: 8080
+
+jobs:
+  DEPLOY:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Display Environment Variables
+        run: |
+          echo "Application Name: ${{ env.APP_NAME }}"
+          echo "Environment: ${{ env.ENVIRONMENT }}"
+          echo "Application Port: ${{ env.APP_PORT }}"

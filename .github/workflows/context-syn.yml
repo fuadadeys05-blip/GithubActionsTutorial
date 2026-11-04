@@ -1,6 +1,9 @@
 name: Context Demo
 on:
-   push:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
     context-demo:

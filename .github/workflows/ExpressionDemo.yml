@@ -1,0 +1,13 @@
+name: Conditional Workflow Demo
+on:
+    push:
+
+jobs:
+  conditional-workflow-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Application
+        run: echo "Building the application..."
+      - name: Deploy Application
+        if: ${{ github.event_name == 'push' }}
+        run: echo "This is a push event. Deploying the application..."
